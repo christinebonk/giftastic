@@ -55,15 +55,20 @@ function displayFish() {
 			newFishImg.setAttribute("data-animate", fishAnimate);
 			newFishImg.setAttribute("data-state", "still");
 			newFishImg.className = "fish-image";
+			//Get fish rating
+			var fishRating = document.createTextNode(response.data[i].rating);
+			var newFishRating = document.createElement("figcaption");
+			newFishRating.appendChild(fishRating);
 			//Attach the image to div and div to the document
 			newFish.appendChild(newFishImg);
+			newFish.appendChild(newFishRating);
 			var tank = document.getElementById("tank");
 			tank.appendChild(newFish);
 		}
 	})
 }
 
-
+//Pause and start animations on click
 $("#tank").on("click", "img", function() {
 	 var state = $(this).attr("data-state");
      var animateState = $(this).attr("data-animate");
@@ -79,6 +84,14 @@ $("#tank").on("click", "img", function() {
       }
 });
 
+//Create input box 
+$("#add-fish").on("click", function(event) {
+	event.preventDefault();
+	var userButton = $("#fish-input").val();
+	topics.push(userButton);
+	renderButtons();
+	$("#fish-input").val("");
+})
 	
 
 	 
