@@ -1,6 +1,6 @@
 var topics = ["pink", "rainbow", "cooked", "cartoon", "shark", "happy", "ugly", "gold", "cat", "cute", "star"];
 
-//render buttons
+//render buttons function
 function renderButtons() {
 	var fishButtons = document.getElementById("fish-buttons");
 	fishButtons.innerHTML = ""; //empty existing buttons
@@ -21,12 +21,11 @@ function renderButtons() {
 	}
 }
 
-
 //render buttons on load
 renderButtons();
 
 
-//add gifs 
+//add gifs function
 function displayFish() {
 	//define query
 	var fishType = $(this).attr("data-name");
@@ -49,12 +48,13 @@ function displayFish() {
 			newFish.className = "fish";
 			//Create image element and add attributes
 			var newFishImg = document.createElement("img");
-			var fishStill = response.data[i].images.fixed_height.url;
-			var fishAnimate = response.data[i].url;
+			var fishStill = response.data[i].images.fixed_height_still.url;
+			var fishAnimate = response.data[i].images.fixed_height.url;
 			newFishImg.src = fishStill;
 			newFishImg.setAttribute("data-still", fishStill);
 			newFishImg.setAttribute("data-animate", fishAnimate);
 			newFishImg.setAttribute("data-state", "still");
+			newFishImg.className = "fish-image";
 			//Attach the image to div and div to the document
 			newFish.appendChild(newFishImg);
 			var tank = document.getElementById("tank");
@@ -62,3 +62,25 @@ function displayFish() {
 		}
 	})
 }
+
+
+$("#tank").on("click", "img", function() {
+	 var state = $(this).attr("data-state");
+     var animateState = $(this).attr("data-animate");
+     var stillState = $(this).attr("data-still");
+
+     if (state == "still") {
+        $(this).attr("src", animateState);
+        $(this).attr("data-state", "animate");
+        console.log("hello");
+      } else if (state == "animate") {
+        $(this).attr("src", stillState);
+        $(this).attr("data-state", "still");
+      }
+});
+
+	
+
+	 
+
+
