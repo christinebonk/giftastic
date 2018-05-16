@@ -1,5 +1,5 @@
 var topics = ["pink", "rainbow", "cooked", "cartoon", "shark", "happy", "ugly", "gold", "cat", "cute", "star"];
-
+var favourites = [];
 //render buttons function
 function renderButtons() {
 	var fishButtons = document.getElementById("fish-buttons");
@@ -56,7 +56,7 @@ function displayFish() {
 			newFishImg.setAttribute("data-state", "still");
 			newFishImg.className = "fish-image";
 			//Get fish rating
-			var fishRating = document.createTextNode(response.data[i].rating);
+			var fishRating = document.createTextNode("Rating: " + response.data[i].rating);
 			var newFishRating = document.createElement("figcaption");
 			newFishRating.appendChild(fishRating);
 			//Attach the image to div and div to the document
