@@ -31,8 +31,7 @@ function displayFish() {
 	var fishType = $(this).attr("data-name");
 	var key = "&api_key=9yB1iQE0uPH4SpZ4Cf7rnaiWj2SGJKz7";
 	var limit = "&limit=3";
-	var rating = "&rating=g"
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=fish+" + fishType + key + limit + rating;
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=fish+" + fishType + key + limit;
 
 	//ajax call
 	$.ajax({
@@ -56,11 +55,21 @@ function displayFish() {
 			newFishImg.setAttribute("data-state", "still");
 			newFishImg.className = "fish-image";
 			//Get fish rating
-			var fishRating = document.createTextNode("Rating: " + response.data[i].rating);
+			var fishRating = document.createTextNode("Danger Level: " + response.data[i].rating);
 			var newFishRating = document.createElement("figcaption");
 			newFishRating.appendChild(fishRating);
+			//Get fish name
+			var fishName = response.data[i].username;
+			if (!fishName) {
+				fishNameNode = document.createTextNode("Name: Bob");
+			} else {
+				fishNameNode = document.createTextNode("Name: " + fishName);
+			}
+			var newFishName = document.createElement("figcaption");
+			newFishName.appendChild(fishNameNode);
 			//Attach the image to div and div to the document
 			newFish.appendChild(newFishImg);
+			newFish.appendChild(newFishName);
 			newFish.appendChild(newFishRating);
 			var tank = document.getElementById("tank");
 			tank.appendChild(newFish);

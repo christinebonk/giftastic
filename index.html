@@ -11,16 +11,31 @@
 		<h1>Build your own Gifquariam</h1>
 	</header>
 	<main>
+		<!--Fish Buttons-->
+		<section class="fish-buttons">
+			<h2>Click the buttons below to add fish to your Gifquarium!</h2>
+			<div id="fish-buttons">
+			</div>
+		</section>
+		<!--Fish Form-->
 		<form>
-			<label for="fish-input">Choose a new type of fish</label>
+			<label for="fish-input">Choose a new type of fish: &nbsp</label>
 			<input type="text" name="fish-input" id="fish-input">
-			<input id="add-fish" type="submit">
+			<div class="submit-fish">
+				<input id="add-fish" type="submit">
+				<div class="tail">
+				</div>
+			</div>
 		</form>
-		<div id="fish-buttons">
-		</div>
+		<!--End of Fish Form-->
+		<!--Tank-->
 		<div id="tank">
 		</div>
 	</main>
+	<!--Seaweeds-->
+		<img src="assets/images/seaweed.png" alt="seaweed" class="seaweed seaweed1">
+		<img src="assets/images/seaweed.png" alt="seaweed" class="seaweed seaweed2">
+		<img src="assets/images/seaweed.png" alt="seaweed" class="seaweed seaweed3">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="assets/javascript/app.js"></script>

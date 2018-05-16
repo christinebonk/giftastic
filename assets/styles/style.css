@@ -6,7 +6,9 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 
 body {
-	background: #0094C7;
+	background: linear-gradient(to bottom, #1CB5E0 0%, #000851 100%);;
+	font-family: 'Poppins', sans-serif;
+	min-height: 100vh;
 }
 
 h1 {
@@ -15,42 +17,153 @@ h1 {
 	font-size: 50px;
 	text-transform: uppercase;
 	color: white;
+	margin: 10px;
+}
+/*Input New Fish*/
+
+form {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	flex-wrap: wrap;
 }
 
+.submit-fish {
+	display: flex;
+}
+
+.submit-fish:hover {
+	animation: 0.15s dance infinite alternate ease-in-out;
+	cursor: pointer;
+}
+
+@keyframes dance {
+	0% {
+		transform: rotate(-5deg);
+	} 100% {
+		transform: rotate(5deg);
+	}
+}
+
+/**/
+input[type=text] {
+	height: 25px;
+	margin-right: 10px;
+}
+
+input[type=submit] {
+	border-radius: 50%;
+	padding: 10px;
+	background: purple;
+	border: none;
+	color: white;
+}
+
+.tail {
+	border-left: 20px solid purple;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	transform: rotate(-45deg);
+	height: 0px;
+	width: 0px;
+}
+
+/*Fish Buttons*/
+
+h2 {
+	text-align: center;
+	font-size: 20px;
+	color: #C8F1FF;
+}
+
+#fish-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+#fish-buttons button {
+	margin: 5px;
+	background: linear-gradient(90deg, #F38630 0%, #DA782B 100%);
+	border: 3px solid #470D00;
+}
+
+#fish-buttons button:hover {
+	background: linear-gradient(90deg, #DA782B 0%, #F38630 100%);
+	cursor: pointer;
+}
+/*Seaweed*/
+
+img.seaweed {
+	position: fixed;
+	bottom: -10px;
+	z-index: 1;
+}
+
+img.seaweed2 {
+	left: 50%;
+	bottom: -20px;
+}
+
+img.seaweed3 {
+	left: 90%;
+}
+
+/*Fish Tank*/
+
 #tank {
-	background: url(../images/fishtank.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	min-height: 70vh;
 	display: flex;
 	justify-content: space-around;
+	align-items: space-around;
 	flex-wrap: wrap;
-	border: solid black 5px;
 	margin: 20px;
+	padding: 20px;
 }
 
 div.fish {
 	position: relative;
+	z-index: 2;
+	margin: 10px;
+}
+
+div.fish:nth-child(odd) {
+	position: relative;
+	animation: ready 2s infinite alternate;
+}
+
+div.fish:nth-child(even) {
+	position: relative;
+	animation: ready 2s infinite alternate;
+	animation-delay: 1s;
 }
 
 .fish img {
 	border-radius: 50%;
-	height: 200px;
-	width: 200px;
+	height: 150px;
+	width: 150px;
+	border: 5px solid #000851;
 }
 
-/*.fish figcaption {
-	position: absolute;
-	border-radius: 50%;
-	height: 200px;
-	width: 200px;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: grey;
-	display: none;
+.fish img:hover {
+	cursor: pointer;
+}
+
+@keyframes ready {
+	from { 
+		transform: translate3d(0, 0, 0);     
+	}
+	to 	{ 
+		transform: translate3d(0, 7px, 0); 
+	}
+}
+
+.fish figcaption {
+	display: flex;
 	justify-content: center;
 	align-items: center;
-}*/
+	text-transform: uppercase;
+	color: white;
+	background: rgba(0,0,0,0.5);
+	padding: 5px;
+	border-radius: 5px;
+}
 
