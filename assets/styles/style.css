@@ -59,6 +59,10 @@ input[type=submit] {
 	color: white;
 }
 
+input[type=submit]:hover {
+	cursor: pointer;
+}
+
 .tail {
 	border-left: 20px solid purple;
 	border-right: 20px solid transparent;
@@ -79,6 +83,7 @@ h2 {
 #fish-buttons {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 }
 
 #fish-buttons button {
@@ -115,7 +120,6 @@ img.seaweed3 {
 	justify-content: space-around;
 	align-items: space-around;
 	flex-wrap: wrap;
-	margin: 20px;
 	padding: 20px;
 }
 
@@ -165,5 +169,19 @@ div.fish:nth-child(even) {
 	background: rgba(0,0,0,0.5);
 	padding: 5px;
 	border-radius: 5px;
+}
+
+@media only screen and (max-width: 700px) {
+	h1 {
+		font-size: 30px;
+	}
+
+	h2 {
+		font-size: 18px;
+	}
+
+	img.seaweed {
+	display: none;
+	}
 }
 

@@ -1,5 +1,5 @@
 var topics = ["pink", "rainbow", "cooked", "cartoon", "shark", "happy", "ugly", "gold", "cat", "cute", "star"];
-var favourites = [];
+
 //render buttons function
 function renderButtons() {
 	var fishButtons = document.getElementById("fish-buttons");
@@ -22,6 +22,10 @@ function renderButtons() {
 }
 
 //render buttons on load
+if (localStorage["topics"]) {
+      var topics = JSON.parse(localStorage["topics"]);
+}
+
 renderButtons();
 
 
@@ -54,6 +58,9 @@ function displayFish() {
 			newFishImg.setAttribute("data-animate", fishAnimate);
 			newFishImg.setAttribute("data-state", "still");
 			newFishImg.className = "fish-image";
+			//Get alt tag
+			var altTag = response.data[i].title;
+			newFishImg.setAttribute("alt", altTag);
 			//Get fish rating
 			var fishRating = document.createTextNode("Danger Level: " + response.data[i].rating);
 			var newFishRating = document.createElement("figcaption");
@@ -98,10 +105,14 @@ $("#add-fish").on("click", function(event) {
 	event.preventDefault();
 	var userButton = $("#fish-input").val();
 	topics.push(userButton);
+	localStorage.setItem("topics", JSON.stringify(topics));
 	renderButtons();
 	$("#fish-input").val("");
 })
 	
+
+
+
 
 	 
 
